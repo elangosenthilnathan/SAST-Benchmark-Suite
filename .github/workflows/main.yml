@@ -21,7 +21,7 @@ jobs:
         #sl analyze --verbose --wait --app "${GITHUB_REPOSITORY#*/}" --verbose --tag app.group="${GITHUB_REPOSITORY_OWNER}_${GITHUB_REPOSITORY#*/}" .
         pwd
         ls -lart
-        cd GO
+        cd Go
         go mod init
         sl analyze --verbose --wait --app "${GITHUB_REPOSITORY#*/}" --verbose --tag app.group="${GITHUB_REPOSITORY_OWNER}_${GITHUB_REPOSITORY#*/}" --go .
       env:

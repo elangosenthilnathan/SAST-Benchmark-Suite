@@ -18,29 +18,31 @@ jobs:
     - name: Run sl analyze 
       shell: bash
       run: |
-        sl analyze --verbose --wait --app "${GITHUB_REPOSITORY#*/}" --verbose --tag app.group="${GITHUB_REPOSITORY_OWNER}_${GITHUB_REPOSITORY#*/}" .
+        #sl analyze --verbose --wait --app "${GITHUB_REPOSITORY#*/}" --verbose --tag app.group="${GITHUB_REPOSITORY_OWNER}_${GITHUB_REPOSITORY#*/}" .
+        pwd
+        ls -lart
         cd GO
         go mod init
         sl analyze --verbose --wait --app "${GITHUB_REPOSITORY#*/}" --verbose --tag app.group="${GITHUB_REPOSITORY_OWNER}_${GITHUB_REPOSITORY#*/}" --go .
       env:
         SHIFTLEFT_ACCESS_TOKEN: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
 
-  Qwiet-Static-Analysis11:
-    runs-on: windows-latest
-    #container: shiftleft/core:latest
+  # Qwiet-Static-Analysis11:
+  #   runs-on: windows-latest
+  #   #container: shiftleft/core:latest
     
-    steps:
+  #   steps:
     
-    - uses: actions/checkout@v4
-    - name: Download sl
-      shell: pwsh
-      run: |
-        Invoke-WebRequest -Uri https://cdn.shiftleft.io/download/sl-latest-windows-x64.zip -UseBasicParsing -OutFile sl-latest-windows-x64.zip
-        Expand-Archive -Path sl-latest-windows-x64.zip -DestinationPath .
+  #   - uses: actions/checkout@v4
+  #   - name: Download sl
+  #     shell: pwsh
+  #     run: |
+  #       Invoke-WebRequest -Uri https://cdn.shiftleft.io/download/sl-latest-windows-x64.zip -UseBasicParsing -OutFile sl-latest-windows-x64.zip
+  #       Expand-Archive -Path sl-latest-windows-x64.zip -DestinationPath .
         
-    - name: Run sl analyze 
-      shell: bash
-      run: |
-        ./sl analyze --verbose --wait --app "${GITHUB_REPOSITORY#*/}2" --verbose --tag app.group="${GITHUB_REPOSITORY_OWNER}_${GITHUB_REPOSITORY#*/}" --csharp C#
-      env:
-        SHIFTLEFT_ACCESS_TOKEN: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
+  #   - name: Run sl analyze 
+  #     shell: bash
+  #     run: |
+  #       ./sl analyze --verbose --wait --app "${GITHUB_REPOSITORY#*/}2" --verbose --tag app.group="${GITHUB_REPOSITORY_OWNER}_${GITHUB_REPOSITORY#*/}" --csharp C#
+  #     env:
+  #       SHIFTLEFT_ACCESS_TOKEN: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}

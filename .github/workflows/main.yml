@@ -22,7 +22,7 @@ jobs:
         pwd
         ls -lart
         cd Go
-        go mod init
+        go mod init .
         sl analyze --verbose --wait --app "${GITHUB_REPOSITORY#*/}" --verbose --tag app.group="${GITHUB_REPOSITORY_OWNER}_${GITHUB_REPOSITORY#*/}" --go .
       env:
         SHIFTLEFT_ACCESS_TOKEN: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}

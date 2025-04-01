@@ -18,7 +18,8 @@ jobs:
     - name: Run sl analyze 
       shell: bash
       run: |
-        sl analyze --verbose --wait --app "${GITHUB_REPOSITORY#*/}" --tag app.group="${GITHUB_REPOSITORY_OWNER}_${GITHUB_REPOSITORY#*/}" .
+        sl analyze --verbose --wait --app "${GITHUB_REPOSITORY#*/}" --verbose --tag app.group="${GITHUB_REPOSITORY_OWNER}_${GITHUB_REPOSITORY#*/}" .
+        sl analyze --verbose --wait --app "${GITHUB_REPOSITORY#*/}" --verbose --tag app.group="${GITHUB_REPOSITORY_OWNER}_${GITHUB_REPOSITORY#*/}" --go GO
       env:
         SHIFTLEFT_ACCESS_TOKEN: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
 
@@ -38,6 +39,6 @@ jobs:
     - name: Run sl analyze 
       shell: bash
       run: |
-        ./sl analyze --verbose --wait --app "${GITHUB_REPOSITORY#*/}2" --tag app.group="${GITHUB_REPOSITORY_OWNER}_${GITHUB_REPOSITORY#*/}" --csharp C#
+        ./sl analyze --verbose --wait --app "${GITHUB_REPOSITORY#*/}2" --verbose --tag app.group="${GITHUB_REPOSITORY_OWNER}_${GITHUB_REPOSITORY#*/}" --csharp C#
       env:
         SHIFTLEFT_ACCESS_TOKEN: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}

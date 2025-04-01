@@ -24,7 +24,7 @@ jobs:
 
   Qwiet-Static-Analysis1:
     runs-on: windows-latest
-    container: shiftleft/core:latest
+    #container: shiftleft/core:latest
     
     steps:
     
